@@ -8,7 +8,7 @@ U.S. exports of LNG have [expanded greatly since 2016](https://www.eia.gov/dnav/
 
 The DOE identifies LNG tankers by their names only — and ships may be renamed. To enable accurate joins to other data on the tankers, we annotated the export data to include a column with the vessels' unique International Maritime Organization codes at the time of each journey, with reference to the IMO's [Global Integrated Shipping Information System](https://webaccounts.imo.org/Common/WebLogin.aspx?App=GISISPublic) and the VesselFinder [vessels database](https://www.vesselfinder.com/vessels).
 
-For information on the tankers' propulsion systems, delivery dates, and tank capacities, we extracted data on contemporary fleets from [annual World LNG Reports](https://www.igu.org/resource-list/report/) published by the International Gas Union.
+For information on the tankers' propulsion systems, delivery dates, and tank capacities, we extracted data on contemporary fleets from [annual World LNG Reports](https://www.igu.org/igu-reports) published by the International Gas Union.
 
 We obtained automatic identification system (AIS) tracking data from [MarineTraffic](https://www.marinetraffic.com/), which supplied one transponder detection each day for LNG tankers for the same time periods as for our DOE export data.
 
@@ -71,7 +71,7 @@ To obtain a crude estimate of the effect of disruptions to shipping through the 
 
 ### Mapping paths for selected export journeys
 
-The [Inside Climate News article](https://) includes an interactive map showing the paths taken on the outward legs for selected export journeys, to illustrate the disruptions to shipping described above. The code to generate the data used is in the script `journey_maps.R`.
+The [Inside Climate News article](https://insideclimatenews.org/news/16042025/liquefied-natural-gas-exports-greenhouse-gas-emissions/) includes an interactive map showing the paths taken on the outward legs for selected export journeys, to illustrate the disruptions to shipping described above. The code to generate the data used is in the script `journey_maps.R`.
 
 ### Putting our emissions calculations in context
 
