@@ -1,4 +1,4 @@
-# Greenhouse gas emissions from shipping of US liquid natural gas exports
+# Greenhouse gas emissions from shipping of US liquefied natural gas exports
 
 Data, methodology and and [R](https://www.r-project.org/) code for the analysis underlying [this Inside Climate News article](https://insideclimatenews.org/news/16042025/liquefied-natural-gas-exports-greenhouse-gas-emissions/), estimating methane and carbon dioxide emissions associated with the shipping of exports of LNG from the United States.
 
@@ -20,11 +20,11 @@ Subsequent calculations of emissions depended in part on separating the cruising
 
 ![](plots/ais_speed_histogram.png)
 
-So we adopted a cut-off of 5 knots, below which vessels were assumed to be maneuvering if not docked. Given that some documentation indicates faster maximum maneuvering speeds for LNG tankers, we also classified maneuvering with a cut-off of 10 knots, to allow a sensitivity analysis for subsequent emissions calculations. We gave a status of docked to any AIS transponder detections with zero speed within 20km of the location of a potential destination port, and to the first and last detection for each outward journey.
+So we adopted a cut-off of 5 knots, below which vessels were assumed to be maneuvering if not docked. Given that some documentation indicates faster maximum maneuvering speeds for LNG tankers, we also classified maneuvering with a cut-off of 10 knots, to allow a sensitivity analysis for subsequent emissions calculations. We gave a status of docked to any AIS transponder detections with zero speed within 20 km of the location of a potential destination port, and to the first and last detection for each outward journey.
 
 ### Estimation of methane and carbon dioxide emissions for these export journeys
 
-During the shipping of LNG, gas continually boils off and is generally burned in the ships' engines or used to generate steam, also used for propulsion. Some of this methane is not combusted and is emitted in a tanker's exhaust gases — a phenomenon called "methane slip." To estimate total greenhouse gas emissions, it is therefore necessary to include emissions of this methane as well as carbon dioxide emitted from the tankers' engines.
+During the shipping of LNG, gas continually boils off and is generally burned in the ships' engines or used to generate steam, also used for propulsion. Some of this methane is not burned and is emitted in a tanker's exhaust gases — a phenomenon called "methane slip." To estimate total greenhouse gas emissions, it is therefore necessary to include emissions of this methane as well as carbon dioxide emitted from the tankers' engines.
 
 To estimate emissions for each export journey we adapted the methods described in [this 2023 scientific paper](https://pubs.acs.org/doi/abs/10.1021/acssuschemeng.3c04269), which depend on the distance traveled at cruising speed, the number of days spent maneuvering and docked, the tanker's propulsion system, its capacity, and its year of delivery. The script `calculate_emissions.R` includes the calculations detailed in the spreadsheet published in the [supporting information](https://pubs.acs.org/doi/10.1021/acssuschemeng.3c04269#_i17) for the paper. To calculate the distance traveled at cruising speed, we used the geodesic path through the location of consecutive AIS transponder detections, after filtering out detections at maneuvering speed. To convert methane emissions to carbon dioxide equivalent, we multiplied by 82.5, representing the 20-year global warming potential for methane, as described in the 2023 paper.
 
